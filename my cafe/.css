@@ -1,0 +1,95 @@
+@layer open-props, base, blend;
+
+@import 'https://unpkg.com/open-props/normalize.min.css' layer(open-props);
+@import 'https://unpkg.com/open-props/open-props.min.css' layer(open-props);
+
+@layer blend {
+  .art {
+    --primary: var(--orange-3);
+    --secondary: var(--orange-4);
+    --tertiary: var(--orange-8);
+    background:
+      linear-gradient(var(--primary), var(--secondary)),
+      linear-gradient(var(--primary) 20%, var(--tertiary)) 0 calc((100 - ((var(--hover, 0) * 100))) * 1%) / 100% 200% no-repeat,
+      url(assets/images/yiyecekmenü.jpg) 0 calc((10 - ((var(--hover, 0) * 10))) * 1px) / cover no-repeat,
+      var(--gray-4);
+    background-blend-mode: darken, multiply, luminosity;
+    transition: background 0.2s;
+  }
+
+  .artl {
+    --primary: var(--yellow-3);
+    --secondary: var(--yellow-4);
+    --tertiary: var(--yellow-8);
+    background:
+      linear-gradient(var(--primary), var(--secondary)),
+      linear-gradient(var(--primary) 20%, var(--tertiary)) 0 calc((100 - ((var(--hover, 0) * 100))) * 1%) / 100% 200% no-repeat,
+      url(assets/images/içecekmenü.jpg) 0 calc((10 - ((var(--hover, 0) * 10))) * 1px) / cover no-repeat,
+      var(--gray-4);
+    background-blend-mode: darken, multiply, luminosity;
+    transition: background 0.2s;
+  }
+
+
+  .artk {
+    --primary: var(--red-3);
+    --secondary: var(--red-4);
+    --tertiary: var(--red-8);
+    background:
+      linear-gradient(var(--primary), var(--secondary)),
+      linear-gradient(var(--primary) 20%, var(--tertiary)) 0 calc((100 - ((var(--hover, 0) * 100))) * 1%) / 100% 200% no-repeat,
+      url(assets/images/tatlı.jpg) 0 calc((10 - ((var(--hover, 0) * 10))) * 1px) / cover no-repeat,
+      var(--gray-4);
+    background-blend-mode: darken, multiply, luminosity;
+    transition: background 0.2s;
+  }
+
+  
+  article:nth-of-type(2) {
+    --primary: var(--green-2);
+    --secondary: var(--green-3);
+    --tertiary: var(--green-7);
+  }
+  
+  article:nth-of-type(3) {
+    --primary: var(--indigo-2);
+    --secondary: var(--indigo-3);
+    --tertiary: var(--indigo-7);
+  }
+  
+  article:hover {
+    --hover: 1;
+  }
+  
+}
+
+@layer base {
+  body {
+    background:url(assets/images/arka.jpg);
+    padding: 2vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    grid-auto-flow: column;
+    gap: 1rem;
+    font-family: 'Google Sans', sans-serif;
+  }
+
+  article {
+    display: grid;
+    place-items: end;
+    height: max(480px, 50vmin);
+    aspect-ratio: 3 / 4;
+    border-radius: var(--radius-3);
+    overflow: hidden;
+  }
+
+  article h2 {
+    padding: var(--size-4);
+    background: hsl(0 0% 0% / 0.75);
+    color: var(--gray-0);
+    backdrop-filter: blur(2px)
+  }  
+}
